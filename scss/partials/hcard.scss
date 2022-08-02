@@ -1,0 +1,37 @@
+.h-card {
+  display: flex;
+  border: 1px solid #666;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+  align-items: center;
+}
+
+.imgContainer {
+  min-width: 120px;
+  flex-basis: 120px;
+  display: flex;
+  align-content: center;
+  .u-logo {
+    align-self: center;
+    border-radius: 50%;
+  }
+}
+
+.txtContainer {
+  padding-left: 10px;
+  p {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .h-card {
+    flex-direction: column;
+  }
+  .imgContainer{
+    width:90px;
+    flex-basis:90px;
+    margin-bottom:10px;
+  }
+}

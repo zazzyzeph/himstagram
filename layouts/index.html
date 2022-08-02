@@ -1,0 +1,13 @@
+{{ define "main" }} {{ range (where .Site.RegularPages "Section" "posts") }}
+<article class="h-entry">
+  <header>
+    <div>
+      <h3 itemprop="name headline" class="post-title p-name">
+        <a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </h3>
+    </div>
+    <div>{{ if isset .Params "date" }} {{ partial "metadata.html" . }} {{ end }}</div>
+  </header>
+  <p>{{ .Summary }}</p>
+</article>
+{{ end }} {{ end }}
