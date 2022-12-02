@@ -1,0 +1,7 @@
+{{ define "main" }}
+<h1>{{ .Params.title }}</h1>
+<video controls loop>
+  <source src="https://zephnet.biz/videos/timelapse.mp4" type="video/mp4">
+</video>
+{{ .Content }}
+{{ end }}
