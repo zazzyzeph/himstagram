@@ -1,4 +1,4 @@
-{{ define "main" }} {{ range (where .Site.RegularPages "Section" "posts") }}
+{{ define "main" }} {{ range (where .Site.RegularPages "Params.type" "posts") }}
 <article class="h-entry">
   <header>
     <div>
