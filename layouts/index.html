@@ -1,13 +1,33 @@
-{{ define "main" }} {{ range (where .Site.RegularPages "Params.type" "posts") }}
+{{ define "main" }}
+<h1>Posts</h1>
+{{ range (where .Site.RegularPages "Params.type" "posts") }}
 <article class="h-entry">
   <header>
     <div>
-      <h3 itemprop="name headline" class="post-title p-name">
+      <h2 itemprop="name headline" class="post-title p-name">
         <a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a>
-      </h3>
+      </h2>
     </div>
-    <div>{{ if isset .Params "date" }} {{ partial "metadata.html" . }} {{ end }}</div>
+    <div>
+      {{ if isset .Params "date" }} {{ partial "metadata.html" . }} {{ end }}
+    </div>
   </header>
+  <img
+    src="/images/{{.Params.featured_image}}"
+    alt="{{.Params.featured_image_alt}}"
+  />
   <p>{{ .Summary }}</p>
+  <ul class="socials">
+    <li>
+      <a href="#{{ .File.UniqueID }}-likes" class="revealButton">
+        <span>🫰</span> {{ .Params.likes.total }} Likes
+      </a>
+    </li>
+    <li>
+      <a href="#{{ .File.UniqueID }}-comments" class="revealButton">
+        <span>🗣️</span> {{ .Params.comments.total }} Comments
+      </a>
+    </li>
+  </ul>
 </article>
 {{ end }} {{ end }}

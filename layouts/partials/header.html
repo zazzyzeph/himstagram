@@ -1,14 +1,22 @@
 <!-- {{ printf "%#v" .RelPermalink }} -->
-<div class="logo">
-  <a href="/"><img src="/svg/logo1.svg" alt="zephnet dot biz logo" /></a>
-</div>
 <nav id="topNav">
+  <div class="logo">
+    <a href="/" title="home"
+      ><div role="img" aria-label="zeph net dot biz logo">
+        {{ partial "logo.html" }}
+      </div></a
+    >
+  </div>
   {{ $currentPage := . }}
   <ul>
     {{ range .Site.Menus.main }}
-    <li>
-      <span class="sr-only">{{ if eq $currentPage.RelPermalink .URL }}Current page: {{ end }}</span>
-      <a href="{{ .URL }}" class="{{ if eq $currentPage.RelPermalink .URL }}active{{ end }}"> {{ $text := print .Name | safeHTML }} {{ $text }} </a>
+    <li class="{{ if eq $currentPage.RelPermalink .URL }}active{{ end }}">
+      <span class="sr-only">
+        {{ if eq $currentPage.RelPermalink .URL }}Current page: {{ end }}
+      </span>
+      <a href="{{ .URL }}">
+        {{ $text := print .Name | safeHTML }} {{ $text }}
+      </a>
     </li>
     {{ end }}
   </ul>
