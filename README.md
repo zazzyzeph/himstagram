@@ -1,17 +1,23 @@
 # Himstagram
 
-A single-column Hugo theme designed exclusively for the male body
+A single-column [Hugo](https://gohugo.io/) theme designed exclusively for the male body.
 
-(mostly my body. i haven't made this very reusable (yet))
+It's instagram FOR MEN.
+
+(i kid. all are welcome to steal this thing and do as they wish.)
 
 ## features
-- posts on the main index page
-- pagination
-- no javascript
-- two discrete pages
+- post list is on the homepage (index)
+- javascript kept to a minimum
+- modern-ish CSS
+- respects light-mode and dark-mode OS settings
+- emphasis on accessibility (i test with browser tools and screen readers, but i'd love to get some github issues with suggested improvements!)
+- two static pages
   - about page
   - a page for plants
 
 ## todos
-- [ ] get rid of sass
-- [ ] get rid of gulp
+- [ ] accessibility options menu in the header
+- [ ] high contrast mode
+- [ ] include the 'list' template in the homepage instead of having two discrete templates (hugo's default list template appears on the tags page)
+- [ ] maybe the himstagram joke isn't as funny as i thought
