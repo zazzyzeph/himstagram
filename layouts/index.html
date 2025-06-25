@@ -12,10 +12,12 @@
       {{ if isset .Params "date" }} {{ partial "metadata.html" . }} {{ end }}
     </div>
   </header>
+  {{ if .Params.featured_image }}
   <img
     src="/images/{{.Params.featured_image}}"
     alt="{{.Params.featured_image_alt}}"
   />
+  {{ end }}
   <p>{{ .Summary }}</p>
   <ul class="socials">
     <li>
