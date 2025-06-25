@@ -1,6 +1,6 @@
 # Himstagram
 
-A single-column [Hugo](https://gohugo.io/) theme designed exclusively for the male body.
+A single-column [Hugo](https://gohugo.io/) theme, used for [zephnet.biz](https://zephnet.biz).
 
 It's instagram FOR MEN.
 
@@ -20,4 +20,4 @@ It's instagram FOR MEN.
 - [ ] accessibility options menu in the header
 - [ ] high contrast mode
 - [ ] include the 'list' template in the homepage instead of having two discrete templates (hugo's default list template appears on the tags page)
-- [ ] maybe the himstagram joke isn't as funny as i thought
+- [ ] make it more reusable for future devs
