@@ -13,10 +13,7 @@
     </div>
   </header>
   {{ if .Params.featured_image }}
-  <img
-    src="/images/{{.Params.featured_image}}"
-    alt="{{.Params.featured_image_alt}}"
-  />
+  <img src="{{.Params.featured_image}}" alt="{{.Params.featured_image_alt}}" />
   {{ end }}
   <p>{{ .Summary }}</p>
   <ul class="socials">
