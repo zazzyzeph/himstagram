@@ -1,7 +1,9 @@
 {{ define "main" }}
 <h1>Posts</h1>
-{{ range (where .Site.RegularPages "Params.type" "posts") }}
-<article class="h-entry">
+{{ range (where .Site.RegularPages "Params.type" "in" (slice "posts" "events"))
+}} {{ $type = "h-entry"}} {{ if eq .Params.type "events" }} {{ $type = "h-event"
+}} {{ end }}
+<article class="{{ $type }}">
   <header>
     <div>
       <h2 itemprop="name headline" class="post-title p-name">
