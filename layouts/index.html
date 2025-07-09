@@ -5,9 +5,9 @@
   {{ $revUntitledCounter := len (where (where .Site.RegularPages "Params.type"
   "in" (slice "posts" "events")) "Params.title" "eq" "") }}
 </b>
-{{ range (where .Site.RegularPages "Params.type" "in" (slice "posts" "events"))
-}} {{ $type := "h-entry"}} {{ if eq .Params.type "events" }} {{ $type :=
-"h-event" }} {{ end }} {{ $title := .Title }}
+{{ range sort (where .Site.RegularPages "Params.type" "in" (slice "posts"
+"events")) "Params.date" "desc" }} {{ $type := "h-entry"}} {{ if eq .Params.type
+"events" }} {{ $type := "h-event" }} {{ end }} {{ $title := .Title }}
 <article class="{{ $type }}">
   <header>
     <div>
