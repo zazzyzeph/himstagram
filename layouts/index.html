@@ -1,13 +1,22 @@
 {{ define "main" }}
 <h1>Posts</h1>
+<!-- counter for untitled posts -->
+<b>
+  {{ $revUntitledCounter := len (where (where .Site.RegularPages "Params.type"
+  "in" (slice "posts" "events")) "Params.title" "eq" "") }}
+</b>
 {{ range (where .Site.RegularPages "Params.type" "in" (slice "posts" "events"))
 }} {{ $type := "h-entry"}} {{ if eq .Params.type "events" }} {{ $type :=
-"h-event" }} {{ end }}
+"h-event" }} {{ end }} {{ $title := .Title }}
 <article class="{{ $type }}">
   <header>
     <div>
       <h2 itemprop="name headline" class="post-title p-name">
-        <a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <a class="title" href="{{ .RelPermalink }}">
+          {{ if eq .Title "" }} Untitled {{ $revUntitledCounter }} {{
+          $revUntitledCounter = sub $revUntitledCounter 1 }} {{ else }} {{
+          .Title }} {{ end }}
+        </a>
       </h2>
     </div>
     <div>
