@@ -1,41 +1,58 @@
 {{ define "main" }}
-<h1>Posts</h1>
-<!-- counter for untitled posts -->
-{{ $revUntitledCounter := len (where (where .Site.RegularPages "Params.type"
-"in" (slice "posts" "events")) "Params.title" "eq" "") }} {{ range sort (where
-.Site.RegularPages "Params.type" "in" (slice "posts" "events")) "Params.date"
-"desc" }} {{ $type := "h-entry"}} {{ if eq .Params.type "events" }} {{ $type :=
-"h-event" }} {{ end }} {{ $title := .Title }}
-<article class="{{ $type }}">
-  <header>
-    <div>
-      <h2 itemprop="name headline" class="post-title p-name">
-        <a class="title" href="{{ .RelPermalink }}">
-          {{ if eq .Title "" }} Untitled {{ $revUntitledCounter }} {{
-          $revUntitledCounter = sub $revUntitledCounter 1 }} {{ else }} {{
-          .Title }} {{ end }}
-        </a>
-      </h2>
-    </div>
-    <div>
-      {{ if isset .Params "date" }} {{ partial "metadata.html" . }} {{ end }}
-    </div>
-  </header>
-  {{ if .Params.featured_image }}
-  <img src="{{.Params.featured_image}}" alt="{{.Params.featured_image_alt}}" />
+  <h1>Posts</h1>
+  <!-- counter for untitled posts -->
+  {{ $revUntitledCounter := len (where (where .Site.RegularPages "Params.type"
+    "in" (slice "posts" "events")) "Params.title" "eq" "")
+  }}
+  {{ range sort (where
+    .Site.RegularPages "Params.type" "in" (slice "posts" "events")) "Params.date"
+    "desc"
+  }}
+    {{ $type := "h-entry" }}
+    {{ if eq .Params.type "events" }}
+      {{ $type :=
+        "h-event"
+      }}
+    {{ end }}
+    {{ $title := .Title }}
+    <article class="{{ $type }}">
+      <header>
+        <div>
+          <h2 itemprop="name headline" class="post-title p-name">
+            <a class="title" href="{{ .RelPermalink }}">
+              {{ if eq .Title "" }}
+                Untitled
+                {{ $revUntitledCounter }}
+                {{ $revUntitledCounter = sub $revUntitledCounter 1 }}
+              {{ else }}
+                {{ .Title }}
+              {{ end }}
+            </a>
+          </h2>
+        </div>
+        <div>
+          {{ if isset .Params "date" }}{{ partial "metadata.html" . }}{{ end }}
+        </div>
+      </header>
+      {{ if .Params.featured_image }}
+        <img
+          src="{{ .Params.featured_image }}"
+          alt="{{ .Params.featured_image_alt }}"
+        />
+      {{ end }}
+      <p>{{ .Summary }}</p>
+      <ul class="socials">
+        <li>
+          <a href="#{{ .File.UniqueID }}-likes" class="revealButton">
+            <span>🫰</span> {{ .Params.likes.total }} Likes
+          </a>
+        </li>
+        <li>
+          <a href="#{{ .File.UniqueID }}-comments" class="revealButton">
+            <span>🗣️</span> {{ .Params.comments.total }} Comments
+          </a>
+        </li>
+      </ul>
+    </article>
   {{ end }}
-  <p>{{ .Summary }}</p>
-  <ul class="socials">
-    <li>
-      <a href="#{{ .File.UniqueID }}-likes" class="revealButton">
-        <span>🫰</span> {{ .Params.likes.total }} Likes
-      </a>
-    </li>
-    <li>
-      <a href="#{{ .File.UniqueID }}-comments" class="revealButton">
-        <span>🗣️</span> {{ .Params.comments.total }} Comments
-      </a>
-    </li>
-  </ul>
-</article>
-{{ end }} {{ end }}
+{{ end }}
