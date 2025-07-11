@@ -1,14 +1,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    if (window.localStorage.getItem("schemePref")) {
+      document.documentElement.dataset.schemePref =
+        window.localStorage.getItem("schemePref");
+    }
+  </script>
   <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <script type="text/javascript" src="/js/script.js"></script>
   <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
   <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
   <link rel="micropub" href="https://zephnet.biz/micropub" />
   {{ with .OutputFormats.Get "rss" }}
     {{ printf `
       <link rel=%q type=%q href=%q title=%q />
-      ` .Rel .MediaType.Type site.BaseURL site.Title | safeHTML
+      ` .Rel .MediaType.Type .Permalink site.Title | safeHTML
     }}
   {{ end }}
   {{ $title

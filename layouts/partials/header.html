@@ -1,5 +1,5 @@
 <!-- {{ printf "%#v" .RelPermalink }} -->
-<nav id="topNav">
+<div id="logoAndControls">
   <div class="logo">
     <a href="/" title="home"
       ><div role="img" aria-label="zeph net dot biz logo">
@@ -7,17 +7,27 @@
       </div></a
     >
   </div>
+  <div id="controls">
+    <a href="#" id="schemePrefToggleButton"
+      ><span class="sr-only"
+        >swap color scheme between light mode and dark mode</span
+      ></a
+    >
+  </div>
+</div>
+<nav id="topNav">
   {{ $currentPage := . }}
   <ul>
     {{ range .Site.Menus.main }}
-    <li class="{{ if eq $currentPage.RelPermalink .URL }}active{{ end }}">
-      <span class="sr-only">
-        {{ if eq $currentPage.RelPermalink .URL }}Current page: {{ end }}
-      </span>
-      <a href="{{ .URL }}">
-        {{ $text := print .Name | safeHTML }} {{ $text }}
-      </a>
-    </li>
+      <li class="{{ if eq $currentPage.RelPermalink .URL }}active{{ end }}">
+        <span class="sr-only">
+          {{ if eq $currentPage.RelPermalink .URL }}Current page:{{ end }}
+        </span>
+        <a href="{{ .URL }}">
+          {{ $text := print .Name | safeHTML }}
+          {{ $text }}
+        </a>
+      </li>
     {{ end }}
   </ul>
 </nav>
