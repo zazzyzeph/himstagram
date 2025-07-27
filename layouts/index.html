@@ -8,11 +8,11 @@
       <header>
         <div>
           <h2 itemprop="name headline" class="post-title p-name">
-            <span class="title u-url p-name">
+            <a class="title u-url p-name" href="{{ .RelPermalink }}">
               {{ if eq .Params.type "event" }}
                 <span role="img" aria-label="Calendar Icon">📅</span>
               {{ end }}{{ .Title }}
-            </span>
+            </a>
           </h2>
         </div>
         <div>
