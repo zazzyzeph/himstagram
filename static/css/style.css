@@ -103,6 +103,9 @@ a:focus {
   align-items: center;
   margin-bottom: 32px;
 }
+.p-location {
+  display: block;
+}
 
 .imgContainer {
   min-width: 120px;
@@ -178,30 +181,40 @@ a:focus {
   color: var(--purple);
 }
 
-.h-entry {
+article {
   padding-bottom: 24px;
   border-bottom: 1px solid var(--gray-low);
   margin-bottom: 24px;
 }
-.h-entry header {
+article header {
   padding: 20px 0;
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   align-items: top;
 }
-.h-entry header div:first-child {
-  flex-basis: 50%;
-  justify-self: flex-start;
+article header div:first-child {
+  justify-self: start;
 }
-.h-entry header div:last-child {
+article header div:last-child {
   text-align: right;
-  flex-basis: 50%;
 }
-.h-entry header h2 {
+article header h2 {
   margin: 0;
 }
-.h-entry header time {
+article header time {
   display: block;
+}
+
+.metaTags ul {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.metaTags li {
+  display: inline;
+  list-style: none;
 }
 
 /* SOCIALS */

@@ -1,33 +1,18 @@
 {{ define "main" }}
   <h1>Posts</h1>
-  <!-- counter for untitled posts -->
-  {{ $revUntitledCounter := len (where (where .Site.RegularPages "Params.type"
-    "in" (slice "posts" "events")) "Params.title" "eq" "")
-  }}
   {{ range sort (where
-    .Site.RegularPages "Params.type" "in" (slice "posts" "events")) "Params.date"
+    .Site.RegularPages "Params.type" "in" (slice "post" "event")) "Params.date"
     "desc"
   }}
-    {{ $type := "h-entry" }}
-    {{ if eq .Params.type "events" }}
-      {{ $type :=
-        "h-event"
-      }}
-    {{ end }}
-    {{ $title := .Title }}
-    <article class="{{ $type }}">
+    <article class="h-{{ .Params.type }}">
       <header>
         <div>
           <h2 itemprop="name headline" class="post-title p-name">
-            <a class="title" href="{{ .RelPermalink }}">
-              {{ if eq .Title "" }}
-                Untitled
-                {{ $revUntitledCounter }}
-                {{ $revUntitledCounter = sub $revUntitledCounter 1 }}
-              {{ else }}
-                {{ .Title }}
-              {{ end }}
-            </a>
+            <span class="title u-url p-name">
+              {{ if eq .Params.type "event" }}
+                <span role="img" aria-label="Calendar Icon">📅</span>
+              {{ end }}{{ .Title }}
+            </span>
           </h2>
         </div>
         <div>
@@ -40,7 +25,51 @@
           alt="{{ .Params.featured_image_alt }}"
         />
       {{ end }}
-      <p>{{ .Summary }}</p>
+      {{ if eq .Params.type "event" }}
+        <p>
+          <time
+            class="dt-start"
+            datetime="{{ .Params.start | time.Format `2006-01-02 15:04` }}"
+          ></time>
+          <time
+            class="dt-end"
+            datetime="{{ .Params.end | time.Format `2006-01-02 15:04` }}"
+          ></time>
+          <strong>Date:</strong>
+          {{ .Params.start | time.Format `2006-01-02` }}
+        </p>
+        <p>
+          <strong>Time:</strong>
+          {{ .Params.start | time.Format `15:04` }} -
+          {{ .Params.end | time.Format `15:04` }} EST
+        </p>
+        <div class="p-location h-card">
+          <a
+            target="_blank"
+            rel="noopener nofollow"
+            class="u-url p-name p-org"
+            href="https://iffybooks.net"
+            >Iffy Books</a
+          >
+
+          <p class="p-street-address">
+            {{ .Params.location.street_address }}
+            {{ .Params.location.locality }}
+            {{ .Params.location.region }}
+            <abbr class="p-country-name" title="United States"
+              >{{ .Params.location.country_name }}</abbr
+            >
+            &mdash;
+            <a
+              target="_blank"
+              rel="noopener nofollow"
+              href="https://www.google.com/maps/search/?api=1&query=Iffy+Books"
+              >View on Google Maps</a
+            >
+          </p>
+        </div>
+      {{ end }}
+      {{ .Summary }}
       <ul class="socials">
         <li>
           <a href="#{{ .File.UniqueID }}-likes" class="revealButton">

@@ -1,5 +1,82 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-{{ partial "metadata.html" . }}
-{{ .Content }}
+  <article class="h-{{ .Params.type }}">
+    <header>
+      <div>
+        <h2 itemprop="name headline" class="post-title p-name">
+          <span class="title u-url p-name">
+            {{ if eq .Params.type "event" }}
+              <span role="img" aria-label="Calendar Icon">📅</span>
+            {{ end }}{{ .Title }}
+          </span>
+        </h2>
+      </div>
+      <div>
+        {{ if isset .Params "date" }}{{ partial "metadata.html" . }}{{ end }}
+      </div>
+    </header>
+    {{ if .Params.featured_image }}
+      <img
+        src="{{ .Params.featured_image }}"
+        alt="{{ .Params.featured_image_alt }}"
+      />
+    {{ end }}
+    {{ if eq .Params.type "event" }}
+      <p>
+        <time
+          class="dt-start"
+          datetime="{{ .Params.start | time.Format `2006-01-02 15:04` }}"
+        ></time>
+        <time
+          class="dt-end"
+          datetime="{{ .Params.end | time.Format `2006-01-02 15:04` }}"
+        ></time>
+        <strong>Date:</strong>
+        {{ .Params.start | time.Format `2006-01-02` }}
+      </p>
+      <p>
+        <strong>Time:</strong>
+        {{ .Params.start | time.Format `15:04` }} -
+        {{ .Params.end | time.Format `15:04` }} EST
+      </p>
+      <div class="p-location h-card">
+        <a
+          target="_blank"
+          rel="noopener nofollow"
+          class="u-url p-name p-org"
+          href="https://iffybooks.net"
+          >Iffy Books</a
+        >
+
+        <p class="p-street-address">
+          {{ .Params.location.street_address }}
+          {{ .Params.location.locality }}
+          {{ .Params.location.region }}
+          <abbr class="p-country-name" title="United States"
+            >{{ .Params.location.country_name }}</abbr
+          >
+          &mdash;
+          <a
+            target="_blank"
+            rel="noopener nofollow"
+            href="https://www.google.com/maps/search/?api=1&query=Iffy+Books"
+            >View on Google Maps</a
+          >
+        </p>
+      </div>
+    {{ end }}
+    {{ .Content }}
+    <ul class="socials">
+      <li>
+        <a href="#{{ .File.UniqueID }}-likes" class="revealButton">
+          <span>🫰</span> {{ .Params.likes.total }} Likes
+        </a>
+      </li>
+      <li>
+        <a href="#{{ .File.UniqueID }}-comments" class="revealButton">
+          <span>🗣️</span> {{ .Params.comments.total }} Comments
+        </a>
+      </li>
+    </ul>
+  </article>
 {{ end }}
+
