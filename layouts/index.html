@@ -52,13 +52,15 @@
             >Iffy Books</a
           >
 
-          <p class="p-street-address">
-            {{ .Params.location.street_address }}
-            {{ .Params.location.locality }}
-            {{ .Params.location.region }}
-            <abbr class="p-country-name" title="United States"
-              >{{ .Params.location.country_name }}</abbr
-            >
+          <p>
+            <span class="p-street-address">
+              {{ .Params.location.street_address }}
+              {{ .Params.location.locality }}
+              {{ .Params.location.region }}
+              <abbr class="p-country-name" title="United States"
+                >{{ .Params.location.country_name }}</abbr
+              >
+            </span>
             &mdash;
             <a
               target="_blank"
