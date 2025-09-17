@@ -13,6 +13,10 @@
   <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
   <link rel="micropub" href="https://zephnet.biz/micropub" />
   <link rel="webmention" href="https://webmention.io/zephnet.biz/webmention" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   {{ with .OutputFormats.Get "rss" }}
     {{ printf `
       <link rel=%q type=%q href=%q title=%q />
