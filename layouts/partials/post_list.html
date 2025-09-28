@@ -1,5 +1,5 @@
-{{ define "main" }}
-  <article class="h-{{ .Params.type }}">
+{{ range .pages }}
+  <article class="h-{{ .Params.type | default "entry" }}">
     <header>
       <div>
         <h2 itemprop="name headline" class="post-title p-name">
@@ -67,18 +67,7 @@
         </p>
       </div>
     {{ end }}
-    {{ .Content }}
-    <!-- <ul class="socials">
-      <li>
-        <a href="#{{ .File.UniqueID }}-likes" class="revealButton">
-          <span>🫰</span> {{ .Params.likes.total }} Likes
-        </a>
-      </li>
-      <li>
-        <a href="#{{ .File.UniqueID }}-comments" class="revealButton">
-          <span>🗣️</span> {{ .Params.comments.total }} Comments
-        </a>
-      </li>
-    </ul> -->
+    {{ .Summary }}
   </article>
 {{ end }}
+
