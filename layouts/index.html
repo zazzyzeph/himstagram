@@ -1,5 +1,6 @@
 {{ define "main" }}
   <h1>Posts</h1>
+  {{ $tz := .Site.Params.timeZone }}
   {{ range sort (where
     .Site.RegularPages "Params.type" "in" (slice "post" "event")) "Params.date"
     "desc"
@@ -36,12 +37,13 @@
             datetime="{{ .Params.end | time.Format `2006-01-02 15:04` }}"
           ></time>
           <strong>Date:</strong>
-          {{ .Params.start | time.Format `2006-01-02` }}
+          {{ time .Params.start | time.In .Site.Params.TimeZone | time.Format `2006-01-02` }}
         </p>
         <p>
           <strong>Time:</strong>
-          {{ .Params.start | time.Format `15:04` }} -
-          {{ .Params.end | time.Format `15:04` }} EST
+          {{ time .Params.start | time.In .Site.Params.TimeZone | time.Format `15:04` }}
+          -
+          {{ time .Params.end | time.In .Site.Params.TimeZone | time.Format `15:04 MST` }}
         </p>
         <div class="p-location h-card">
           <a
