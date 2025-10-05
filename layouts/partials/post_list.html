@@ -69,5 +69,47 @@
       </div>
     {{ end }}
     {{ .Summary }}
+  <h3>Mentions:</h3>
+{{ with .File }}
+  <div class="mentionsSection" id="mention-{{ .UniqueID }}">None yet!</div>
+{{ end }}
   </article>
+  
+  <script>
+fetch("https://webmention.io/api/mentions.jf2?target=https://zephnet.biz{{ .RelPermalink }}")
+    .then(response => response.json())
+  .then(responseJson => { 
+    if (responseJson.children.length){
+      let template = '';
+      for (let mention of responseJson.children) {
+        {{ with .File }}
+        const tplReplacement = document.querySelector('#mention-{{ .UniqueID }}')
+        {{ end }}
+        const wmPhotoUrl = mention.author.photo;
+        const wmAuthorName = mention.author.name;
+        const wmAuthorUrl = mention.author.url;
+        const wmContent = mention.content.html;
+        const wmPosted = mention.published;
+        template += `
+          <div class="mention">
+            <div class="wmPhoto">
+              <img src="${wmPhotoUrl}" />
+              <a href="${wmAuthorUrl}">${wmAuthorName}</a>
+            </div>
+            <div class="wmContent">
+              <p>
+                ${wmContent}
+              </p>
+              <p>
+                ${wmPosted}
+              </p>
+            </div>
+          </div>
+        `;
+        template = template.replace('<p></p>', '');
+        tplReplacement.innerHTML = template;
+      }
+    }
+  });
+</script>
 {{ end }}

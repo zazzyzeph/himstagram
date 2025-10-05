@@ -341,3 +341,27 @@ video {
 .tags {
   font-size: 24px;
 }
+
+.mentionsSections {
+  display: grid;
+}
+
+.mention {
+  padding: 10px 0;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-gap: 10px;
+}
+
+.wmContent > p:first-of-type{
+  margin-top: 0;
+}
+
+.wmPhoto {
+  max-width: 100px;
+}
+
+.wmPhoto img {
+  border-radius: 50%;
+  overflow:hidden
+}
