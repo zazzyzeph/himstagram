@@ -41,14 +41,9 @@
         EST
       </p>
       <div class="p-location h-card">
-        <a
-          target="_blank"
-          rel="noopener nofollow"
-          class="u-url p-name p-org"
-          href="https://iffybooks.net"
-          >Iffy Books</a
-        >
-
+        <span class="p-name p-org">
+          {{ .Params.location.name }}
+        </span>
         <p>
           <span class="p-street-address">
             {{ .Params.location.street_address }}
