@@ -205,15 +205,7 @@ article {
 article header {
   padding: 20px 0;
   width: 100%;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
   align-items: top;
-}
-article header div:first-child {
-  justify-self: start;
-}
-article header div:last-child {
-  text-align: right;
 }
 article header h2 {
   margin: 0;
