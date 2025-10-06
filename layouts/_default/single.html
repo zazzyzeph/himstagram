@@ -2,13 +2,13 @@
   <article class="h-{{ .Params.type }}">
     <header>
       <div>
-        <h2 itemprop="name headline" class="post-title p-name">
+        <h1 itemprop="name headline" class="post-title p-name">
           <a class="u-url" href="{{ .RelPermalink }}">
             {{ if eq .Params.type "event" }}
               <span role="img" aria-label="Calendar Icon">📅</span>
             {{ end }}{{ .Title }}
           </a>
-        </h2>
+        </h1>
       </div>
     </header>
     {{ if .Params.featured_image }}
