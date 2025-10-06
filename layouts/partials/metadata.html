@@ -3,7 +3,7 @@
   .Site.Params.dateFormat | default "Jan 2, 2006"
 }}
 Posted
-<time class="dt-published" datetime="{{ $dateTime }}">
+<time class="dt-published" datetime="{{ .Date }}">
   {{ .PublishDate.Format $dateFormat }}
 </time> by <a class="p-author h-card minihcard" href="https://zephnet.biz"><img class="u-logo" src="https://zephnet.biz/images/zephy.jpg"/>Zephyr</a>
 {{ with .Params.tags }}
