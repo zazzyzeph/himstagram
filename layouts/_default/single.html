@@ -10,9 +10,6 @@
           </a>
         </h2>
       </div>
-      <div>
-        {{ if isset .Params "date" }}{{ partial "metadata.html" . }}{{ end }}
-      </div>
     </header>
     {{ if .Params.featured_image }}
       <img
@@ -67,18 +64,11 @@
         </p>
       </div>
     {{ end }}
+    <div class="e-content">
     {{ .Content }}
-    <!-- <ul class="socials">
-      <li>
-        <a href="#{{ .File.UniqueID }}-likes" class="revealButton">
-          <span>🫰</span> {{ .Params.likes.total }} Likes
-        </a>
-      </li>
-      <li>
-        <a href="#{{ .File.UniqueID }}-comments" class="revealButton">
-          <span>🗣️</span> {{ .Params.comments.total }} Comments
-        </a>
-      </li>
-    </ul> -->
+    </div>
+    <div>
+      {{ if isset .Params "date" }}{{ partial "metadata.html" . }}{{ end }}
+    </div>
   </article>
 {{ end }}

@@ -103,6 +103,22 @@ a:focus {
   align-items: center;
   margin-bottom: 32px;
 }
+
+.minihcard {
+  display: inline-grid;
+  grid-template-columns: min-content 1fr;
+  padding: 0;
+  margin: 0;
+  border: 0 none;
+  box-shadow: none;
+  vertical-align: -5px;
+}
+
+.minihcard img {
+  min-width: 25px;
+  border-radius: 50%;
+}
+
 .p-location {
   display: block;
 }

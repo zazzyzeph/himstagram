@@ -2,10 +2,10 @@
 {{ $dateFormat :=
   .Site.Params.dateFormat | default "Jan 2, 2006"
 }}
+Posted
 <time class="dt-published" datetime="{{ $dateTime }}">
-  Posted
   {{ .PublishDate.Format $dateFormat }}
-</time>
+</time> by <a class="p-author h-card minihcard" href="https://zephnet.biz"><img class="u-logo" src="https://zephnet.biz/images/zephy.jpg"/>Zephyr</a>
 {{ with .Params.tags }}
   <div class="metaTags">
     <span>Tags:</span>
@@ -14,7 +14,7 @@
         {{ $href := print (absURL "tags/")
           (urlize .)
         }}
-        <li><a href="{{ $href }}">#{{ . }}</a></li>
+        <li><a rel="category tag" class="p-category" href="{{ $href }}">#{{ . }}</a></li>
       {{ end }}
     </ul>
   </div>
