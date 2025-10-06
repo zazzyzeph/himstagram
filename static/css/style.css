@@ -61,6 +61,22 @@
   --orange-low: #fe8019;
 }
 
+@font-face {
+    font-family: 'Adwaita Sans';
+    src: url('/fonts/AdwaitaSans.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Adwaita Sans';
+    src: url('/fonts/AdwaitaSansItalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
 .sr-only {
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
@@ -73,7 +89,7 @@
 }
 
 body {
-  font-family: "Open Sans", "sans-serif", "Helvetica", "Arial";
+  font-family: "Adwaita Sans", "Open Sans", "sans-serif", "Helvetica", "Arial";
   min-height: 100%;
   margin: 0;
   display: flex;
