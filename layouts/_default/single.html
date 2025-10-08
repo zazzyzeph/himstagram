@@ -15,6 +15,7 @@
       <img
         src="{{ .Params.featured_image }}"
         alt="{{ .Params.featured_image_alt }}"
+        loading="lazy"
       />
     {{ end }}
     {{ if eq .Params.type "event" }}

@@ -15,6 +15,7 @@
       <img
         src="{{ .Params.featured_image }}"
         alt="{{ .Params.featured_image_alt }}"
+        loading="lazy"
       />
     {{ end }}
     {{ if eq .Params.type "event" }}
@@ -90,7 +91,7 @@ fetch("https://webmention.io/api/mentions.jf2?target=https://zephnet.biz{{ .RelP
         template += `
           <div class="mention">
             <div class="wmPhoto">
-              <img src="${wmPhotoUrl}" />
+              <img src="${wmPhotoUrl}" loading="lazy" />
               <a href="${wmAuthorUrl}">${wmAuthorName}</a>
             </div>
             <div class="wmContent">

@@ -1,0 +1,16 @@
+name: himstagram
+license: MIT
+licenselink: 'https://github.com/zazzyzeph/himstagram/blob/master/LICENSE'
+description: A single-column Hugo theme
+homepage: 'https://zephnet.biz'
+tags: []
+features: []
+min_version: 0.41.0
+timeZone: America/New_York
+markup:
+  goldmark:
+    parser:
+      wrapStandAloneImageWithinParagraph: false
+author:
+  name: Zephyr Prusinski
+  homepage: 'https://zephnet.biz'
