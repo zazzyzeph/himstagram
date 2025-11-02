@@ -337,6 +337,14 @@ video {
 #controls {
   display: grid;
   align-content: center;
+  grid-template-columns: 1fr min-content;
+  gap: 24px;
+}
+
+#controls a {
+  display: grid;
+  align-content: center;
+  white-space: nowrap;
 }
 
 #schemePrefToggleButton {
