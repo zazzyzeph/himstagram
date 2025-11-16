@@ -1,0 +1,193 @@
+/* can't wait for @mixin support :') anyways here's 9 bajillion lines of css colors */
+:root {
+  --fg: #fbf1c7;
+  --bg: #282828;
+  --gray-low: #3c3836;
+  --gray-high: #ebdbb2;
+  --blue: #83a598;
+  --blue-low: #076678;
+  --purple: #d3869b;
+  --purple-low: #8f3f71;
+  --orange: #fe8019;
+  --orange-low: #af3a03;
+
+  --dark-fg: #fbf1c7;
+  --dark-bg: #282828;
+  --dark-gray-low: #3c3836;
+  --dark-gray-high: #ebdbb2;
+  --dark-blue: #83a598;
+  --dark-blue-low: #076678;
+  --dark-purple: #d3869b;
+  --dark-purple-low: #8f3f71;
+  --dark-orange: #fe8019;
+  --dark-orange-low: #af3a03;
+
+  --light-fg: #282828;
+  --light-bg: #fbf1c7;
+  --light-gray-low: #d5c4a1;
+  --light-gray-high: #504945;
+  --light-blue: #076678;
+  --light-blue-low: #83a598;
+  --light-purple: #8f3f71;
+  --light-purple-low: #d3869b;
+  --light-orange: #af3a03;
+  --light-orange-low: #fe8019;
+
+  --high-contrast-dark-fg: #fff;
+  --high-contrast-dark-bg: #000;
+  --high-contrast-dark-gray-low: #888;
+  --high-contrast-dark-gray-high: #888;
+  --high-contrast-dark-blue: #aaf;
+  --high-contrast-dark-blue-low: #99f;
+  --high-contrast-dark-purple: #f8f;
+  --high-contrast-dark-purple-low: #d6d;
+  --high-contrast-dark-orange: #f84;
+
+  --high-contrast-light-fg: #000;
+  --high-contrast-light-bg: #fff;
+  --high-contrast-light-gray-low: #888;
+  --high-contrast-light-gray-high: #888;
+  --high-contrast-light-blue: #00d;
+  --high-contrast-light-blue-low: #00a;
+  --high-contrast-light-purple: #40a;
+  --high-contrast-light-purple-low: #208;
+  --high-contrast-light-orange: #f80;
+  --high-contrast-light-orange-low: #f40;
+}
+
+
+:root, :root[data-theme="dark"] {
+  --fg: var(--dark-fg);
+  --bg: var(--dark-bg);
+  --gray-low: var(--dark-gray-low);
+  --gray-high: var(--dark-gray-high);
+  --blue: var(--dark-blue);
+  --blue-low: var(--dark-blue-low);
+  --purple: var(--dark-purple);
+  --purple-low: var(--dark-purple-low);
+  --orange: var(--dark-orange);
+  --orange-low: var(--dark-orange-low);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-contrast="high"] {
+    --fg: var(--high-contrast-dark-fg);
+    --bg: var(--high-contrast-dark-bg);
+    --gray-low: var(--high-contrast-dark-gray-low);
+    --gray-high: var(--high-contrast-dark-gray-high);
+    --blue: var(--high-contrast-dark-blue);
+    --blue-low: var(--high-contrast-dark-blue-low);
+    --purple: var(--high-contrast-dark-purple);
+    --purple-low: var(--high-contrast-dark-purple-low);
+    --orange: var(--high-contrast-dark-orange);
+    --orange-low: var(--high-contrast-dark-orange-low);
+  }
+}
+
+:root[data-theme="dark"][data-contrast="high"] {
+  --fg: var(--high-contrast-dark-fg);
+  --bg: var(--high-contrast-dark-bg);
+  --gray-low: var(--high-contrast-dark-gray-low);
+  --gray-high: var(--high-contrast-dark-gray-high);
+  --blue: var(--high-contrast-dark-blue);
+  --blue-low: var(--high-contrast-dark-blue-low);
+  --purple: var(--high-contrast-dark-purple);
+  --purple-low: var(--high-contrast-dark-purple-low);
+  --orange: var(--high-contrast-dark-orange);
+  --orange-low: var(--high-contrast-dark-orange-low);
+}
+
+
+:root[data-theme="light"] {
+  --fg: var(--light-fg);
+  --bg: var(--light-bg);
+  --gray-low: var(--light-gray-low);
+  --gray-high: var(--light-gray-high);
+  --blue: var(--light-blue);
+  --blue-low: var(--light-blue-low);
+  --purple: var(--light-purple);
+  --purple-low: var(--light-purple-low);
+  --orange: var(--light-orange);
+  --orange-low: var(--light-orange-low);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --fg: var(--dark-fg);
+    --bg: var(--dark-bg);
+    --gray-low: var(--dark-gray-low);
+    --gray-high: var(--dark-gray-high);
+    --blue: var(--dark-blue);
+    --blue-low: var(--dark-blue-low);
+    --purple: var(--dark-purple);
+    --purple-low: var(--dark-purple-low);
+    --orange: var(--dark-orange);
+    --orange-low: var(--dark-orange-low);
+  }
+  :root[data-contrast="high"] {
+    --fg: var(--high-contrast-light-fg);
+    --bg: var(--high-contrast-light-bg);
+    --gray-low: var(--high-contrast-light-gray-low);
+    --gray-high: var(--high-contrast-light-gray-high);
+    --blue: var(--high-contrast-light-blue);
+    --blue-low: var(--high-contrast-light-blue-low);
+    --purple: var(--high-contrast-light-purple);
+    --purple-low: var(--high-contrast-light-purple-low);
+    --orange: var(--high-contrast-light-orange);
+    --orange-low: var(--high-contrast-light-orange-low);
+  }
+}
+
+
+:root[data-theme="light"][data-contrast="high"] {
+  --fg: var(--high-contrast-light-fg);
+  --bg: var(--high-contrast-light-bg);
+  --gray-low: var(--high-contrast-light-gray-low);
+  --gray-high: var(--high-contrast-light-gray-high);
+  --blue: var(--high-contrast-light-blue);
+  --blue-low: var(--high-contrast-light-blue-low);
+  --purple: var(--high-contrast-light-purple);
+  --purple-low: var(--high-contrast-light-purple-low);
+  --orange: var(--high-contrast-light-orange);
+  --orange-low: var(--high-contrast-light-orange-low);
+}
+
+
+@media (prefers-contrast: more) {
+  :root {
+    --fg: var(--high-contrast-dark-fg);
+    --bg: var(--high-contrast-dark-bg);
+    --gray-low: var(--high-contrast-dark-gray-low);
+    --gray-high: var(--high-contrast-dark-gray-high);
+    --blue: var(--high-contrast-dark-blue);
+    --blue-low: var(--high-contrast-dark-blue-low);
+    --purple: var(--high-contrast-dark-purple);
+    --purple-low: var(--high-contrast-dark-purple-low);
+    --orange: var(--high-contrast-dark-orange);
+    --orange-low: var(--high-contrast-dark-orange-low);
+  }
+  :root[data-theme="dark"] {
+    --fg: var(--high-contrast-dark-fg);
+    --bg: var(--high-contrast-dark-bg);
+    --gray-low: var(--high-contrast-dark-gray-low);
+    --gray-high: var(--high-contrast-dark-gray-high);
+    --blue: var(--high-contrast-dark-blue);
+    --blue-low: var(--high-contrast-dark-blue-low);
+    --purple: var(--high-contrast-dark-purple);
+    --purple-low: var(--high-contrast-dark-purple-low);
+    --orange: var(--high-contrast-dark-orange);
+    --orange-low: var(--high-contrast-dark-orange-low);
+  }
+  :root[data-theme="light"] {
+    --fg: var(--high-contrast-light-fg);
+    --bg: var(--high-contrast-light-bg);
+    --gray-low: var(--high-contrast-light-gray-low);
+    --gray-high: var(--high-contrast-light-gray-high);
+    --blue: var(--high-contrast-light-blue);
+    --blue-low: var(--high-contrast-light-blue-low);
+    --purple: var(--high-contrast-light-purple);
+    --purple-low: var(--high-contrast-light-purple-low);
+    --orange: var(--high-contrast-light-orange);
+    --orange-low: var(--high-contrast-light-orange-low);
+  }
+}

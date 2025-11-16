@@ -1,31 +1,7 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const setColorScheme = (schemePref) => {
-    window.localStorage.setItem("schemePref", schemePref);
-    document.documentElement.dataset.schemePref = schemePref;
-  };
+import { SettingsMenu } from "./modules/SettingsMenu.js";
+import { SettingsGroup } from "./modules/SettingsGroup.js";
 
-  let schemePref = "dark";
-  if (
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: light)").matches
-  ) {
-    schemePref = "light";
-  }
-  if (document.documentElement.dataset.schemePref) {
-    schemePref = document.documentElement.dataset.schemePref;
-  }
-  const schemePrefToggleButton = document.querySelector(
-    "#schemePrefToggleButton",
-  );
-  if (schemePrefToggleButton) {
-    schemePrefToggleButton.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (schemePref == "dark") {
-        schemePref = "light";
-      } else {
-        schemePref = "dark";
-      }
-      setColorScheme(schemePref);
-    });
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  customElements.define("settings-menu", SettingsMenu);
+  customElements.define("settings-group", SettingsGroup);
 });

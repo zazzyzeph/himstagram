@@ -2,13 +2,31 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script>
-    if (window.localStorage.getItem("schemePref")) {
-      document.documentElement.dataset.schemePref =
-        window.localStorage.getItem("schemePref");
+    let siteSettings = {
+      'theme': 'default',
+      'contrast': 'default',
+      'animations': 'default'
+    };
+    try {
+      siteSettings = JSON.parse(window.localStorage.getItem("siteSettings"))
+    } catch (e) {
+      // if siteSettings fails to parse, save the default settings to localStorage
+      window.localStorage.setItem("siteSettings", JSON.stringify(siteSettings))
+    }
+    for (setting in siteSettings){
+      document.documentElement.dataset[setting] = siteSettings[setting];
     }
   </script>
   <link rel="stylesheet" type="text/css" href="/css/style.css" />
-  <script type="text/javascript" src="/js/script.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "SettingsMenu": "./js/modules/SettingsMenu.js",
+        "SettingsGroup": "./js/modules/SettingsGroup.js"
+      }
+    }
+  </script>
+  <script type="module" src="/js/script.js"></script>
   <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
   <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
   <link rel="micropub" href="https://zephnet.biz/micropub" />

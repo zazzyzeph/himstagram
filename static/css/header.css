@@ -1,0 +1,109 @@
+.logo {
+  padding-top: 10px;
+  max-width: 300px;
+}
+
+.logo svg {
+  width: 100%;
+  fill: var(--fg);
+}
+
+.logo:hover svg {
+  fill: var(--purple);
+}
+
+#logoAndControls {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  align-items: center;
+  gap: 24px;
+}
+
+#controls {
+  display: grid;
+  align-content: center;
+  grid-template-columns: 1fr min-content;
+  gap: 12px;
+}
+
+#rssLink, settings-menu > a {
+  display: block;
+  width: 40px;
+}
+
+#rssLink svg {
+  fill: var(--orange);
+}
+
+settings-menu > a {
+  fill: var(--fg);
+}
+
+settings-menu {
+  visibility: hidden;
+  position: relative;
+}
+
+settings-menu.moduleLoaded {
+  visibility: visible;
+}
+
+#options {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  border: 1px solid var(--fg);
+  margin: 0;
+  padding: 10px;
+  background-color: var(--bg);
+  border-radius: 4px;
+  list-style: none;
+}
+
+settings-menu.open #options {
+  display: block;
+}
+
+#topNav {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--fg);
+}
+#topNav ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  width: 100%;
+  margin: 0;
+}
+#topNav li {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+#topNav li a {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 10px;
+  border-radius: 4px;
+  color: var(--blue);
+  border: 2px solid var(--bg);
+}
+#topNav li a:hover,
+#topNav li.active a {
+  text-decoration: none;
+}
+#topNav li.active a,
+#topNav li.active a:hover,
+#topNav li.active a:focus,
+#topNav li.active a:active {
+  background-color: var(--blue);
+  border: 2px solid var(--blue);
+  color: var(--bg);
+  cursor: default;
+}
+#topNav li a:hover {
+  border: 2px solid var(--purple);
+  color: var(--purple);
+}

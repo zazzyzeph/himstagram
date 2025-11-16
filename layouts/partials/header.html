@@ -3,17 +3,53 @@
   <div class="logo">
     <a href="/" title="home"
       ><div role="img" aria-label="zeph net dot biz logo">
-        {{ partial "logo.html" }}
+        {{ partial "logo_svg.html" }}
       </div></a
     >
   </div>
   <div id="controls">
-    <a href="/index.xml">Subscribe via RSS</a>
-    <a href="#" id="schemePrefToggleButton"
-      ><span class="sr-only"
-        >swap color scheme between light mode and dark mode</span
-      ></a
-    >
+    <settings-menu>
+      <a href="/settings">
+        {{ partial "gear_svg.html" }}
+      </a>
+      <ul id="options">
+        <li>
+          <settings-group>
+            <form id="themeOptions" data-group="theme">
+              <fieldset>
+                <legend>Theme</legend>
+                <label><input type="radio" name="theme" value="default" checked> Default</label>
+                <label><input type="radio" name="theme" value="light" checked> Light</label>
+                <label><input type="radio" name="theme" value="dark" checked> Dark</label>
+              </fieldset>
+            </form>
+          </settings-group>
+        </li>
+        <li>
+          <settings-group>
+            <form id="contrastOptions" data-group="contrast">
+              <fieldset>
+                <legend>Contrast</legend>
+                <label><input type="radio" name="contrast" value="default" checked> Default</label>
+                <label><input type="radio" name="contrast" value="high" checked> High</label>
+              </fieldset>
+            </form>
+          </settings-group>
+        </li>
+        <li>
+          <settings-group>
+            <form id="animationOptions" data-group="animations">
+              <fieldset>
+                <legend>Animations</legend>
+                <label><input type="radio" name="animations" value="default" checked> Default</label>
+                <label><input type="radio" name="animations" value="none" checked> None</label>
+              </fieldset>
+            </form>
+          </settings-group>
+        </li>
+      </ul>
+    </settings-menu>
+    <a href="/index.xml" id="rssLink">{{ partial "rss_svg.html" }}</a>
   </div>
 </div>
 <nav id="topNav">
