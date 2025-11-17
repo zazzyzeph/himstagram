@@ -114,16 +114,16 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --fg: var(--dark-fg);
-    --bg: var(--dark-bg);
-    --gray-low: var(--dark-gray-low);
-    --gray-high: var(--dark-gray-high);
-    --blue: var(--dark-blue);
-    --blue-low: var(--dark-blue-low);
-    --purple: var(--dark-purple);
-    --purple-low: var(--dark-purple-low);
-    --orange: var(--dark-orange);
-    --orange-low: var(--dark-orange-low);
+    --fg: var(--light-fg);
+    --bg: var(--light-bg);
+    --gray-low: var(--light-gray-low);
+    --gray-high: var(--light-gray-high);
+    --blue: var(--light-blue);
+    --blue-low: var(--light-blue-low);
+    --purple: var(--light-purple);
+    --purple-low: var(--light-purple-low);
+    --orange: var(--light-orange);
+    --orange-low: var(--light-orange-low);
   }
   :root[data-contrast="high"] {
     --fg: var(--high-contrast-light-fg);
@@ -137,6 +137,19 @@
     --orange: var(--high-contrast-light-orange);
     --orange-low: var(--high-contrast-light-orange-low);
   }
+}
+
+@media (prefers-color-scheme: light) and (prefers-contrast: more) {
+  --fg: var(--high-contrast-light-fg);
+  --bg: var(--high-contrast-light-bg);
+  --gray-low: var(--high-contrast-light-gray-low);
+  --gray-high: var(--high-contrast-light-gray-high);
+  --blue: var(--high-contrast-light-blue);
+  --blue-low: var(--high-contrast-light-blue-low);
+  --purple: var(--high-contrast-light-purple);
+  --purple-low: var(--high-contrast-light-purple-low);
+  --orange: var(--high-contrast-light-orange);
+  --orange-low: var(--high-contrast-light-orange-low);
 }
 
 

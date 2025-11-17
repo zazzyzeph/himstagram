@@ -8,7 +8,7 @@ class SettingsMenu extends HTMLElement {
     const closeMenuButton = this.querySelector('.closeMenuButton');
     const options = this.querySelector("#options");
 
-    const closeMenu = () => {
+    const closeMenu = (e) => {
       this.classList.remove("open");
       this.open = false;
       gearAnchor.setAttribute('aria-expanded', 'false');
@@ -33,8 +33,8 @@ class SettingsMenu extends HTMLElement {
         this.open = !this.open;
         gearAnchor.setAttribute('aria-expanded', this.open.toString());
         if (this.open) {
-          document.addEventListener("click", closeMenuIfNotClicked(e));
-          document.addEventListener("keyup", closeMenuOnEsc(e));
+          document.addEventListener("click", closeMenuIfNotClicked);
+          document.addEventListener("keyup", closeMenuOnEsc);
         }
         else {
           document.removeEventListener("click", closeMenuIfNotClicked);

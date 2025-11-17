@@ -50,6 +50,20 @@ a:focus {
   color: var(--blue);
 }
 
+pre {
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.highlight {
+  overflow: scroll;
+}
+
 .h-card {
   display: flex;
   border: 1px solid var(--gray-high);
@@ -179,13 +193,20 @@ html {
 }
 
 .container {
-  max-width: 800px;
   margin: 0 auto;
   padding: 0 10px 0;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  max-width: calc(100vw - 20px);
 }
+
+@media screen and (min-width: 800px) {
+  .container {
+    max-width: 800px;
+  }
+}
+
 .container > *:not(footer) {
   flex-grow: 0;
 }
