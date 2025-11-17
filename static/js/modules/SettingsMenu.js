@@ -3,7 +3,6 @@ class SettingsMenu extends HTMLElement {
     super();
   }
   connectedCallback() {
-    this.classList.add("moduleLoaded");
     this.open = false;
     const gearAnchor = this.querySelector('.gearAnchor');
     const closeMenuButton = this.querySelector('.closeMenuButton');

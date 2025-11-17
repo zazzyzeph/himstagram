@@ -4,8 +4,6 @@ class SettingsGroup extends HTMLElement {
   }
   connectedCallback() {
 
-    this.classList.add("moduleLoaded");
-
     const form = this.querySelector('form');
     const groupTitle = form.dataset.group;
     const radios = form.querySelectorAll('input');
