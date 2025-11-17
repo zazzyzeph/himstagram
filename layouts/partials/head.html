@@ -2,19 +2,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script>
-    let siteSettings = {
-      'theme': 'default',
-      'contrast': 'default',
-      'animations': 'default'
-    };
     try {
-      siteSettings = JSON.parse(window.localStorage.getItem("siteSettings"))
+      window.siteSettings = JSON.parse(window.localStorage.getItem("siteSettings"))
     } catch (e) {
-      // if siteSettings fails to parse, save the default settings to localStorage
-      window.localStorage.setItem("siteSettings", JSON.stringify(siteSettings))
+      // if siteSettings fails to parse, do nothing
     }
-    for (setting in siteSettings){
-      document.documentElement.dataset[setting] = siteSettings[setting];
+    if (window.siteSettings){
+      for (setting in window.siteSettings){
+        document.documentElement.dataset[setting] = window.siteSettings[setting];
+      }
     }
   </script>
   <link rel="stylesheet" type="text/css" href="/css/style.css" />

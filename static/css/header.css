@@ -35,17 +35,20 @@
   fill: var(--orange);
 }
 
-settings-menu > a {
+#rssLink:hover svg {
+  fill: var(--purple);
+}
+
+settings-menu .gearAnchor {
   fill: var(--fg);
 }
 
-settings-menu {
-  visibility: hidden;
-  position: relative;
+settings-menu .gearAnchor:hover {
+  fill: var(--purple);
 }
 
-settings-menu.moduleLoaded {
-  visibility: visible;
+settings-menu {
+  position: relative;
 }
 
 #options {
@@ -59,6 +62,10 @@ settings-menu.moduleLoaded {
   background-color: var(--bg);
   border-radius: 4px;
   list-style: none;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+settings-menu.open {
 }
 
 settings-menu.open #options {

@@ -1,8 +1,6 @@
 @import "./colors.css";
 @import "./header.css";
 
-
-
 @font-face {
     font-family: 'Adwaita Sans';
     src: url('/fonts/AdwaitaSans.woff2') format('woff2');
@@ -75,6 +73,10 @@ a:focus {
 .minihcard img {
   min-width: 25px;
   border-radius: 50%;
+}
+
+.minihcard span {
+  margin-left: 5px;
 }
 
 .p-location {
@@ -199,6 +201,7 @@ img,
 video {
   width: 100%;
   height: auto;
+  border-radius: 4px;
 }
 
 .sr-only {
@@ -210,6 +213,27 @@ video {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+fieldset {
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.closeMenuButton {
+  display: block;
+  text-align: center;
+  padding: 5px;
+  background-color: var(--blue);
+  color: var(--bg);
+  border-radius: 4px;
+  margin: 8px 2px 2px;
+  text-decoration: none;
+}
+
+.closeMenuButton:hover {
+  background-color: var(--blue-low);
+  color: var(--fg);
 }
 
 .tags {

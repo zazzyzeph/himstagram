@@ -3,6 +3,7 @@ class SettingsGroup extends HTMLElement {
     super();
   }
   connectedCallback() {
+
     this.classList.add("moduleLoaded");
 
     const form = this.querySelector('form');
@@ -10,7 +11,7 @@ class SettingsGroup extends HTMLElement {
     const radios = form.querySelectorAll('input');
 
     for (const radio of radios){
-      if (radio.value == siteSettings[groupTitle]){
+      if (radio.value == window.siteSettings[groupTitle]){
         radio.checked = true
         continue;
       }
@@ -23,9 +24,9 @@ class SettingsGroup extends HTMLElement {
 
     form.addEventListener("change", (e) => {
       const value = e.target.value;
-      siteSettings[groupTitle] = value;
+      window.siteSettings[groupTitle] = value;
       document.documentElement.dataset[groupTitle] = value;
-      window.localStorage.setItem("siteSettings", JSON.stringify(siteSettings))
+      window.localStorage.setItem("siteSettings", JSON.stringify(window.siteSettings))
     })
 
   }

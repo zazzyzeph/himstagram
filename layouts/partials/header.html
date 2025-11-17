@@ -9,7 +9,7 @@
   </div>
   <div id="controls">
     <settings-menu>
-      <a href="/settings">
+      <a class="gearAnchor" href="/settings" aria-label="Appearance and accessibility options" aria-expanded="false" aria-haspopup="listbox" aria-controls="options" role="button" aria-expanded="false">
         {{ partial "gear_svg.html" }}
       </a>
       <ul id="options">
@@ -46,6 +46,9 @@
               </fieldset>
             </form>
           </settings-group>
+        </li>
+        <li>
+          <a href="#" class="closeMenuButton" role="button" aria-controls="options">Close Menu</a>
         </li>
       </ul>
     </settings-menu>
