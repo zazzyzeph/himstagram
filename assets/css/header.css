@@ -183,7 +183,7 @@ settings-menu.open #options {
   }
 }
 
-@media screen and (min-width:1100px) {
+@media screen and (min-width:1000px) {
   .container > header {
     grid-template-rows: span 2;
   }
