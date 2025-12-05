@@ -3,6 +3,14 @@
   max-width: 300px;
 }
 
+.logo a {
+  display: inline-block;
+}
+
+header svg {
+  width: 100%;
+}
+
 .logo svg {
   width: 100%;
   fill: var(--fg);
@@ -26,8 +34,8 @@
   gap: 12px;
 }
 
-#rssLink, settings-menu > a {
-  display: block;
+#controls svg {
+  display: inline-block;
   width: 40px;
 }
 
@@ -77,26 +85,36 @@ settings-menu.open #options {
   padding-bottom: 6px;
   border-bottom: 1px solid var(--fg);
 }
+
 #topNav ul {
   padding: 0;
   list-style: none;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   width: 100%;
   margin: 0;
 }
+
 #topNav li {
   flex-grow: 1;
   flex-shrink: 1;
 }
+
 #topNav li a {
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   padding: 10px;
+  gap: 10px;
   border-radius: 4px;
   color: var(--blue);
   border: 2px solid var(--bg);
 }
+
+#topNav svg {
+  display: none;
+}
+
 #topNav li a:hover,
 #topNav li.active a {
   text-decoration: none;
@@ -110,7 +128,74 @@ settings-menu.open #options {
   color: var(--bg);
   cursor: default;
 }
+
 #topNav li a:hover {
   border: 2px solid var(--purple);
   color: var(--purple);
+}
+
+#topNav li:not(.active) a:hover svg { 
+  fill: var(--purple);
+}
+
+#topNav li.active a:hover svg, #topNav li.active a svg { 
+  fill: var(--bg);
+}
+
+#topNav li:nth-of-type(1) {
+  --button-color: var(--aqua);
+}
+#topNav li:nth-of-type(2) {
+  --button-color: var(--red);
+}
+#topNav li:nth-of-type(3) {
+  --button-color: var(--green);
+}
+#topNav li:nth-of-type(4) {
+  --button-color: var(--blue);
+}
+
+#topNav li svg {
+  fill: var(--button-color);
+}
+
+#topNav li.active a, #topNav li.active a:hover {
+  background-color: var(--button-color);
+  border-color: var(--button-color);
+}
+
+@media screen and (min-width: 400px) {
+  #topNav svg {
+    display: block;
+    max-width: 20px;
+  }
+  #topNav li a {
+    gap: 10px;
+  }
+}
+@media screen and (min-width: 600px) {
+  #topNav svg {
+    display: block;
+    max-width: 30px;
+  }
+  #topNav li a {
+    gap: 10px;
+  }
+}
+
+@media screen and (min-width:1100px) {
+  .container > header {
+    grid-template-rows: span 2;
+  }
+  header .innerWrapper {
+    position: fixed;
+    top: 0;
+  }
+  #topNav svg {
+    display: block;
+    max-width: 40px;
+  }
+  #topNav li a {
+    gap: 20px;
+  }
 }

@@ -1,73 +1,78 @@
 <!-- {{ printf "%#v" .RelPermalink }} -->
-<div id="logoAndControls">
-  <div class="logo">
-    <a href="/" title="home"
-      ><div role="img" aria-label="zeph net dot biz logo">
-        {{ partial "logo_svg.html" }}
-      </div></a
-    >
-  </div>
-  <div id="controls">
-    <settings-menu>
-      <a class="gearAnchor" href="/accessibility" aria-label="Appearance and accessibility options" aria-expanded="false" aria-haspopup="listbox" aria-controls="options" role="button" aria-expanded="false">
-        {{ partial "gear_svg.html" }} 
-      </a>
-      <ul id="options">
-        <li>
-          <settings-group>
-            <form id="themeOptions" data-group="theme">
-              <fieldset>
-                <legend>Theme</legend>
-                <label><input type="radio" name="theme" value="default" checked> Default</label>
-                <label><input type="radio" name="theme" value="light" checked> Light</label>
-                <label><input type="radio" name="theme" value="dark" checked> Dark</label>
-              </fieldset>
-            </form>
-          </settings-group>
-        </li>
-        <li>
-          <settings-group>
-            <form id="contrastOptions" data-group="contrast">
-              <fieldset>
-                <legend>Contrast</legend>
-                <label><input type="radio" name="contrast" value="default" checked> Default</label>
-                <label><input type="radio" name="contrast" value="high" checked> High</label>
-              </fieldset>
-            </form>
-          </settings-group>
-        </li>
-        <li>
-          <settings-group>
-            <form id="animationOptions" data-group="animations">
-              <fieldset>
-                <legend>Animations</legend>
-                <label><input type="radio" name="animations" value="default" checked> Default</label>
-                <label><input type="radio" name="animations" value="none" checked> None</label>
-              </fieldset>
-            </form>
-          </settings-group>
-        </li>
-        <li>
-          <a href="#" class="closeMenuButton" role="button" aria-controls="options">Close Menu</a>
-        </li>
-      </ul>
-    </settings-menu>
-    <a href="/index.xml" id="rssLink">{{ partial "rss_svg.html" }}</a>
-  </div>
-</div>
-<nav id="topNav">
-  {{ $currentPage := . }}
-  <ul>
-    {{ range .Site.Menus.main }}
-      <li class="{{ if eq $currentPage.RelPermalink .URL }}active{{ end }}">
-        <span class="sr-only">
-          {{ if eq $currentPage.RelPermalink .URL }}Current page:{{ end }}
-        </span>
-        <a href="{{ .URL }}">
-          {{ $text := print .Name | safeHTML }}
-          {{ $text }}
+<header>
+  <div class="innerWrapper">
+    <div id="logoAndControls">
+      <div class="logo">
+        <a href="/" title="home">{{ partial "logo_svg.html" }}</a>
+      </div>
+      <div id="controls">
+        <settings-menu>
+          <a class="gearAnchor" href="/accessibility" aria-label="Appearance and accessibility options" aria-expanded="false" aria-haspopup="listbox" aria-controls="options" role="button" aria-expanded="false">
+            {{ partial "gear_svg.html" }} 
+            <span class="lg-only">Accessibility &amp; Theme</span>
+          </a>
+          <ul id="options">
+            <li>
+              <settings-group>
+                <form id="themeOptions" data-group="theme">
+                  <fieldset>
+                    <legend>Theme</legend>
+                    <label><input type="radio" name="theme" value="default" checked> Default</label>
+                    <label><input type="radio" name="theme" value="light" checked> Light</label>
+                    <label><input type="radio" name="theme" value="dark" checked> Dark</label>
+                  </fieldset>
+                </form>
+              </settings-group>
+            </li>
+            <li>
+              <settings-group>
+                <form id="contrastOptions" data-group="contrast">
+                  <fieldset>
+                    <legend>Contrast</legend>
+                    <label><input type="radio" name="contrast" value="default" checked> Default</label>
+                    <label><input type="radio" name="contrast" value="high" checked> High</label>
+                  </fieldset>
+                </form>
+              </settings-group>
+            </li>
+            <li>
+              <settings-group>
+                <form id="animationOptions" data-group="animations">
+                  <fieldset>
+                    <legend>Animations</legend>
+                    <label><input type="radio" name="animations" value="default" checked> Default</label>
+                    <label><input type="radio" name="animations" value="none" checked> None</label>
+                  </fieldset>
+                </form>
+              </settings-group>
+            </li>
+            <li>
+              <a href="#" class="closeMenuButton" role="button" aria-controls="options">Close Menu</a>
+            </li>
+          </ul>
+        </settings-menu>
+        <a href="/index.xml" id="rssLink">
+          {{ partial "rss_svg.html" }} <span class="lg-only">RSS Link</span>
         </a>
-      </li>
-    {{ end }}
-  </ul>
-</nav>
+      </div>
+    </div>
+    <nav id="topNav">
+      {{ $currentPage := . }}
+      <ul>
+        {{ range .Site.Menus.main }}
+          <li class="{{ if eq $currentPage.RelPermalink .URL }}active{{ end }}">
+            <span class="sr-only">
+              {{ if eq $currentPage.RelPermalink .URL }}Current page:{{ end }}
+            </span>
+            <a href="{{ .URL }}">
+              {{ $icon := printf "%s_svg.html" .Pre }}
+              {{ $text := print .Name | safeHTML }}
+              {{ partial $icon }}
+              {{ $text }}
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+</header>

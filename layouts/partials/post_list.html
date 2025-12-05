@@ -64,7 +64,12 @@
     <div class="e-content">
       {{ .Summary }}
     </div>
-    <div>
+    {{ if .Truncated }}
+    <div class="readMore">
+      <a href="{{ .RelPermalink }}">Continue reading</a>
+    </div>
+    {{ end }}
+      <div>
       {{ if isset .Params "date" }}{{ partial "metadata.html" . }}{{ end }}
     </div>
   <h3>Webmentions:</h3>

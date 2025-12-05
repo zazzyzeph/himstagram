@@ -1,6 +1,3 @@
-@import "./colors.css";
-@import "./header.css";
-
 @font-face {
     font-family: 'Adwaita Sans';
     src: url('/fonts/AdwaitaSans.woff2') format('woff2');
@@ -32,9 +29,6 @@ body {
   font-family: "Adwaita Sans", "Open Sans", "sans-serif", "Helvetica", "Arial";
   min-height: 100%;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
   background-color: var(--bg);
   color: var(--fg);
 }
@@ -48,6 +42,10 @@ a:hover {
 }
 a:focus {
   color: var(--blue);
+}
+
+.lg-only {
+  display: none;
 }
 
 pre {
@@ -193,29 +191,19 @@ html {
 }
 
 .container {
+  height: 100vh;
   margin: 0 auto;
   padding: 0 10px 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
   max-width: calc(100vw - 20px);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content 1fr min-content;
 }
 
 @media screen and (min-width: 800px) {
   .container {
     max-width: 800px;
   }
-}
-
-.container > *:not(footer) {
-  flex-grow: 0;
-}
-
-footer {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-content: flex-end;
 }
 
 img,
@@ -257,6 +245,10 @@ fieldset {
   color: var(--fg);
 }
 
+.readMore {
+  margin-bottom: 24px;
+}
+
 .tags {
   font-size: 24px;
 }
@@ -283,4 +275,70 @@ fieldset {
 .wmPhoto img {
   border-radius: 50%;
   overflow:hidden
+}
+
+@media screen and (min-width:1100px) {
+  .container {
+    max-width: 1180px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 1fr min-content;
+    gap: 40px;
+  }
+  footer {
+    grid-column: 2;
+  }
+  #logoAndControls {
+    grid-template-columns: 1fr;
+  }
+  #controls {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  #controls > a, settings-menu > a {
+    display: grid;
+    align-items: center;
+    grid-template-columns: min-content 1fr;
+    gap: 20px;
+    padding: 10px;
+  }
+  settings-menu > a {
+    width: auto;
+  }
+  #controls svg {
+    display: inline-block;
+  }
+  .container > header {
+    position: relative;
+    grid-row: span 2;
+  }
+  .container > header::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    height: 100%;
+    background-color: var(--fg);
+  }
+  #topNav {
+    padding: 0;
+    border: 0 none;
+  }
+  #topNav ul {
+    grid-template-columns: 1fr;
+  }
+  #topNav li a {
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+  }
+  #topNav svg {
+    max-width: 40px;
+    display: inline-block;
+  }
+  .lg-only {
+    display: inherit;
+  }
 }
