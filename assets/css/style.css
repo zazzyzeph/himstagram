@@ -62,7 +62,7 @@ table {
   overflow: scroll;
 }
 
-.h-card {
+footer .h-card {
   display: flex;
   border: 1px solid var(--gray-high);
   border-radius: 4px;
@@ -200,6 +200,10 @@ html {
   grid-template-rows: min-content 1fr min-content;
 }
 
+.container > main h1:first-of-type {
+  margin-bottom: 10px;
+}
+
 @media screen and (min-width: 800px) {
   .container {
     max-width: 800px;
@@ -246,7 +250,7 @@ fieldset {
 }
 
 .readMore {
-  margin-bottom: 24px;
+  margin: 24px 0 24px;
 }
 
 .tags {
@@ -275,6 +279,26 @@ fieldset {
 .wmPhoto img {
   border-radius: 50%;
   overflow:hidden
+}
+
+.h-event {
+  margin-bottom: 16px;
+}
+
+.button {
+  padding: 10px 24px;
+  font-weight: bold;
+  background-color: var(--blue);
+  color: var(--bg);
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.button:hover, .button:focus {
+  padding: 8px 22px;
+  background-color: var(--bg);
+  color: var(--purple);
+  border: 2px solid var(--purple);
 }
 
 @media screen and (min-width:1000px) {
