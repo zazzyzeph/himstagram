@@ -14,9 +14,9 @@
       }
     }
   </script>
-  {{ range resources.Match "css/*.css" }}{{ with . | minify | fingerprint "sha256" }}<link rel="stylesheet" type="text/css" media="screen" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" />
+  {{ range resources.Match "css/*.css" }}{{ with . | fingerprint "sha256" }}<link rel="stylesheet" type="text/css" media="screen" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" />
   {{ end }}{{ end }}
-  {{ with resources.Get "js/script.js" }}{{ with . | js.Build | minify | fingerprint "sha256" }}<script type="text/javascript" src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" ></script>
+  {{ with resources.Get "js/script.js" }}{{ with . | js.Build | fingerprint "sha256" }}<script type="text/javascript" src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" ></script>
   {{ end }}{{ end }}
   <link rel="alternate" type="application/rss+xml" href="https://zephnet.biz/index.xml" title="RSS Feed for https://zephnet.biz"  />
   <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
