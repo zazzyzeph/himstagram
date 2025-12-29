@@ -72,9 +72,6 @@
     <div>
       {{ if isset .Params "date" }}{{ partial "metadata.html" . }}{{ end }}
     </div>
-  <h2>Webmentions:</h2>
-{{ with .File }}
-  <div class="mentionsSection" id="mention-{{ .UniqueID }}">None yet!</div>
-{{ end }}
+    {{ partial "webmentions.html" . }}
   </article>
 {{ end }}

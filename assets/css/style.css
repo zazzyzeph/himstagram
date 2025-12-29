@@ -88,7 +88,8 @@ footer .h-card {
 }
 
 .minihcard span {
-  margin-left: 5px;
+  padding-left: 8px;
+  white-space: nowrap;
 }
 
 .p-location {

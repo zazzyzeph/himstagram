@@ -1,5 +1,6 @@
 import { SettingsMenu } from "./modules/SettingsMenu.js";
 import { SettingsGroup } from "./modules/SettingsGroup.js";
+import { PostWebmentions } from "./modules/PostWebmentions.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   if (!window.siteSettings) {
@@ -11,4 +12,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   customElements.define("settings-menu", SettingsMenu);
   customElements.define("settings-group", SettingsGroup);
+  customElements.define("post-webmentions", PostWebmentions);
 });
