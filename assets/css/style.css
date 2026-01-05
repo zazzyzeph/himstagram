@@ -302,6 +302,20 @@ fieldset {
   border: 2px solid var(--purple);
 }
 
+.h-entry li {
+  margin-bottom: 5px;
+}
+
+.h-entry li p {
+  margin: 0;
+}
+
+.h-entry li ul {
+  margin-top: 5px;
+}
+
+
+
 @media screen and (min-width:1000px) {
   .container {
     max-width: 1180px;
