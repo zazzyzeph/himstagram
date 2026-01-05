@@ -302,18 +302,21 @@ fieldset {
   border: 2px solid var(--purple);
 }
 
-article li {
-  margin-bottom: 5px;
-}
-
 article li p {
   margin: 0;
+}
+
+article li {
+  margin-bottom: 6px;
 }
 
 article li ul {
   margin-top: 5px;
 }
 
+article a {
+  word-break: break-word;
+}
 
 
 @media screen and (min-width:1000px) {
