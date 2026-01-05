@@ -302,15 +302,15 @@ fieldset {
   border: 2px solid var(--purple);
 }
 
-.h-entry li {
+article li {
   margin-bottom: 5px;
 }
 
-.h-entry li p {
+article li p {
   margin: 0;
 }
 
-.h-entry li ul {
+article li ul {
   margin-top: 5px;
 }
 
