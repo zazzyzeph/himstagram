@@ -14,7 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   customElements.define("settings-menu", SettingsMenu);
   customElements.define("settings-group", SettingsGroup);
   customElements.define("post-webmentions", PostWebmentions);
-  if (!window.reduceMotion){
+  console.log(document.documentElement.dataset.animations)
+  if (!window.reduceMotion && document.documentElement.dataset.animations != 'none'){
     customElements.define('video-lazy-loader', VideoLazyLoader);
   }
 });

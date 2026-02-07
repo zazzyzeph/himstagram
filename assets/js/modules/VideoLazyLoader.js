@@ -19,6 +19,7 @@ class VideoLazyLoader extends HTMLElement {
     }
 
     this.setupObserver(imgEl, videoSrc);
+
   }
   setupObserver(imgEl, videoSrc) {
     const options = {
@@ -61,8 +62,10 @@ class VideoLazyLoader extends HTMLElement {
       </div>
     `;
     this.videoEl = this.querySelector('video');
+    if (document.documentElement.dataset.animations != 'none'){
+      this.videoEl.pause();
+    }
   }
 }
-
 
 export { VideoLazyLoader };

@@ -11,7 +11,15 @@
         </h1>
       </div>
     </header>
-    {{ if .Params.featured_image }}
+    {{ if .Params.featured_video }}
+<video-lazy-loader data-videosrc="{{.Params.featured_video}}">
+      <img
+        src="{{ .Params.featured_image }}"
+        alt="{{ .Params.featured_image_alt }}"
+        loading="lazy"
+      />
+</video-lazy-loader>
+    {{ else if .Params.featured_image }}
       <img
         src="{{ .Params.featured_image }}"
         alt="{{ .Params.featured_image_alt }}"

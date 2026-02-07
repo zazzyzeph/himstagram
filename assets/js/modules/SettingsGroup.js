@@ -22,6 +22,9 @@ class SettingsGroup extends HTMLElement {
 
     form.addEventListener("change", (e) => {
       const value = e.target.value;
+      if (groupTitle == 'animations') {
+        location.reload();
+      }
       window.siteSettings[groupTitle] = value;
       document.documentElement.dataset[groupTitle] = value;
       window.localStorage.setItem("siteSettings", JSON.stringify(window.siteSettings))
