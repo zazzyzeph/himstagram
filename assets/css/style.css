@@ -1,3 +1,7 @@
+* {
+  box-sizing:border-box;
+}
+
 @font-face {
     font-family: 'Adwaita Sans';
     src: url('/fonts/AdwaitaSans.woff2') format('woff2');
@@ -59,7 +63,12 @@ table {
 }
 
 .highlight {
-  overflow: scroll;
+  overflow-x: auto;
+}
+
+.highlight * {
+  white-space: pre-wrap;
+  word-wrap:break-word;
 }
 
 footer .h-card {
@@ -384,3 +393,4 @@ article a {
     display: inherit;
   }
 }
+
