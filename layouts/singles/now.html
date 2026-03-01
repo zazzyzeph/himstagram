@@ -1,0 +1,9 @@
+{{ define "main" }}
+<h1>{{ .Params.title }}</h1>
+{{ .Content }} 
+{{ $now := where .Site.Pages "Type" "now" }}
+{{ range $now }}
+<h2>{{ .Date | time.Format `2006-01-02 15:04` }} </h2>
+{{ .Content }}
+{{ end }}
+{{ end }}

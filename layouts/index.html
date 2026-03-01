@@ -1,4 +1,7 @@
 {{ define "main" }}
-  <h1>Posts</h1>
+  <h1>Feed</h1>
+  <h2>Now</h2>
+  {{ partial "current_now.html" (dict "context" . "pages" (sort (where .Site.RegularPages "Params.type" "in" "now" ) "Params.date" "desc" | first 1)) }}
+  <h2>Posts</h2>
   {{ partial "post_list.html" (dict "context" . "pages" (sort (where .Site.RegularPages "Params.type" "in" (slice "entry" "event")) "Params.date" "desc")) }}
 {{ end }}

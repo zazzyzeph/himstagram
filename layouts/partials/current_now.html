@@ -1,0 +1,7 @@
+{{ range .pages }}
+<div class="nowContainer">
+  <p>{{ .Date | time.Format `2006-01-02 15:04` }}</p>
+{{ .Content }}
+</div>
+{{ end }}
+<p><a href="{{.Site.URL}}/now">Archived on /now</a>

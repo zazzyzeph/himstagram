@@ -2,6 +2,7 @@ import { SettingsMenu } from "./modules/SettingsMenu.js";
 import { SettingsGroup } from "./modules/SettingsGroup.js";
 import { PostWebmentions } from "./modules/PostWebmentions.js";
 import { VideoLazyLoader } from "./modules/VideoLazyLoader.js";
+import { BandcampPlayer } from "./modules/BandcampPlayer.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   if (!window.siteSettings) {
@@ -14,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   customElements.define("settings-menu", SettingsMenu);
   customElements.define("settings-group", SettingsGroup);
   customElements.define("post-webmentions", PostWebmentions);
-  console.log(document.documentElement.dataset.animations)
+  customElements.define('bandcamp-player', BandcampPlayer);
   if (!window.reduceMotion && document.documentElement.dataset.animations != 'none'){
     customElements.define('video-lazy-loader', VideoLazyLoader);
   }

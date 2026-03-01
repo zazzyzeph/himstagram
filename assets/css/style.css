@@ -2,6 +2,15 @@
   box-sizing:border-box;
 }
 
+button {
+  all: unset;
+  text-align: center;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 @font-face {
     font-family: 'Adwaita Sans';
     src: url('/fonts/AdwaitaSans.woff2') format('woff2');
@@ -327,6 +336,14 @@ article a {
   word-break: break-word;
 }
 
+.nowContainer {
+  padding: 0 15px 15px;
+  width: 100%;
+  max-width: 414px;
+  border: 1px dashed var(--fg);
+  border-radius: 4px;
+}
+
 
 @media screen and (min-width:1000px) {
   .container {
@@ -393,4 +410,3 @@ article a {
     display: inherit;
   }
 }
-
