@@ -43,8 +43,7 @@
         <strong>Time:</strong>
         {{ time .Params.start | time.In .Site.Params.TimeZone | time.Format `15:04` }}
         -
-        {{ time .Params.end | time.In .Site.Params.TimeZone | time.Format `15:04` }}
-        EST
+        {{ time .Params.end | time.In .Site.Params.TimeZone | time.Format `15:04 MST` }}
       </p>
       <div class="p-location h-card">
         <span class="p-name p-org">
