@@ -13,7 +13,10 @@ class BandcampPlayer extends HTMLElement {
     button.addEventListener('click', e => {
       button.style.display = 'none';
       const url = this.dataset.url;
-      const album = this.dataset.album;
+      let album = '';
+      if (this.dataset.album !== undefined) {
+        album = this.dataset.album;
+      }
       const track = this.dataset.track;
       const title = this.dataset.title;
       const player = this.makeEmbed(url, album, track, title);
@@ -25,7 +28,11 @@ class BandcampPlayer extends HTMLElement {
     player.style.border = '0';
     player.style.width = '100%';
     player.style.height = '120px';
-    player.src = `https://bandcamp.com/EmbeddedPlayer/album=${album}/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=${track}/transparent=true/`;
+    let albumString = '';
+    if (album.length > 0){
+      albumString = '/album=' + album;
+    }
+    player.src = `https://bandcamp.com/EmbeddedPlayer${albumString}/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=${track}/transparent=true/`;
     const link = document.createElement('a');
     link.setAttribute('href', url);
     const linkText = document.createTextNode(title);
