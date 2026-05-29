@@ -344,6 +344,25 @@ article a {
   border-radius: 4px;
 }
 
+figure.audio {
+  margin: 10px 0 18px;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid var(--fg);
+  display: inline-block;
+}
+
+.audio figcaption {
+  font-weight: bold;
+  display: block;
+  padding-bottom: 5px;
+}
+
+.audio a {
+  display: block;
+  padding-top: 5px;
+}
+
 
 @media screen and (min-width:1000px) {
   .container {
