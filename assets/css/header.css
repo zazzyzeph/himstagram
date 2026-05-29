@@ -22,21 +22,29 @@ header svg {
 
 #logoAndControls {
   display: grid;
-  grid-template-columns: 1fr min-content;
+  grid-template-columns: 40px min-content;
   align-items: center;
   gap: 24px;
 }
 
-#controls {
+#controls, #contact {
   display: grid;
   align-content: center;
-  grid-template-columns: 1fr min-content;
+  grid-template-columns: 40px 1fr;
   gap: 12px;
 }
 
-#controls svg {
+#controls svg, #contact svg {
   display: inline-block;
   width: 40px;
+}
+
+#contact svg {
+  fill: var(--purple);
+}
+
+#contact span {
+  display: inline-block;
 }
 
 #rssLink svg {
