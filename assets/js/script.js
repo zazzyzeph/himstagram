@@ -22,3 +22,4 @@ document.addEventListener("DOMContentLoaded", () => {
     customElements.define('video-lazy-loader', VideoLazyLoader);
   }
 });
+
