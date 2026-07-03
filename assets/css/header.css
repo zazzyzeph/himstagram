@@ -1,3 +1,7 @@
+.hidden {
+  display: none;
+}
+
 .logo {
   padding-top: 10px;
   max-width: 300px;
@@ -27,16 +31,20 @@ header svg {
   gap: 24px;
 }
 
-#controls {
+#controls, #contact {
   display: grid;
   align-content: center;
-  grid-template-columns: 1fr min-content;
+  grid-template-columns: 40px 40px 40px;
   gap: 12px;
 }
 
-#controls svg {
+#controls svg, #contact svg {
   display: inline-block;
   width: 40px;
+}
+
+#contact svg {
+  fill: var(--purple);
 }
 
 #rssLink svg {

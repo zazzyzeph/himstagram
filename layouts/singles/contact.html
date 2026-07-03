@@ -1,0 +1,36 @@
+{{ define "main" }}
+<h1>{{ .Params.title }}</h1>
+<div id="successMessage" class="formMessage hidden"><span>Success! I'll be in touch.</span></div>
+<div id="errorMessage" class="formMessage hidden"><span>There was an error submitting your form. Please try again.</span></div>
+<form id="contactForm">
+  <label>Name<input type="text" name="name" required /></label> 
+  <label>Email<input type="email" name="email" required /></label> 
+  <label>Message<textarea name="messge" required></textarea></label>
+  <label class="mood"><input type="text" name="mood" placeholder="do you feel human today" /></label>
+  <div class="cf-turnstile" data-sitekey="0x4AAAAAADvHGysKP66ythYB"></div>
+  <button type="submit" class="button">Submit</button>
+</form>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const contactForm = document.querySelector('#contactForm');
+  const successMessage = document.querySelector('#successMessage')
+  const errorMessage = document.querySelector('#errorMessage')
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const res = await fetch("https://contact.zephnet.biz", {
+      method: "POST",
+      body: new FormData(e.target),
+    });
+    if (res.ok) {
+      contactForm.classList.add('hidden');
+      successMessage.classList.remove('hidden');
+    } else {
+      errorMessage.classList.remove('hidden');
+    }
+  });
+})
+</script>
+{{ .Content }}
+{{ end }}

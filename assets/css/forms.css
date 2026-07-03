@@ -1,0 +1,53 @@
+#contactForm input, #contactForm label, #contactForm textarea {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 4px; 
+  font-size: 18px;
+  border: 0 none;
+}
+
+#contactForm label {
+  font-weight: bold;
+}
+
+#contactForm input, #contactForm textarea {
+  border: 2px solid var(--gray-low);
+  margin: 5px 0 15px;
+  padding: 5px;
+}
+
+#contactForm textarea {
+  height: 16ch;
+}
+
+#contactForm button.button {
+  display: block;
+  margin-top: 15px;
+}
+
+#contactForm label.mood {
+  /* honeypot field */
+  display: none;
+}
+
+.formMessage span {
+  padding: 20px;
+  font-size: 18px;
+  display: inline-block;
+  border-size: 1px;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+
+#successMessage {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+
+#errorMessage {
+  border-color: var(--red);
+  color: var(--red);
+}
