@@ -31,10 +31,23 @@
   display: none;
 }
 
-#formMessage span {
+.formMessage span {
   padding: 20px;
-  font-size: 24px;
+  font-size: 18px;
   display: inline-block;
   border-size: 1px;
   border-style: solid;
+  border-radius: 4px;
+}
+
+
+#successMessage {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+
+#errorMessage {
+  border-color: var(--red);
+  color: var(--red);
 }

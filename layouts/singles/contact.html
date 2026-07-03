@@ -1,7 +1,7 @@
 {{ define "main" }}
 <h1>{{ .Params.title }}</h1>
-<div id="formMessage successMessage" class="hidden"><span>Success! I'll be in touch.</span></div>
-<div id="formMessage errorMessage" class="hidden"><span>There was an error submitting your form.</span></div>
+<div id="successMessage" class="formMessage hidden"><span>Success! I'll be in touch.</span></div>
+<div id="errorMessage" class="formMessage hidden"><span>There was an error submitting your form. Please try again.</span></div>
 <form id="contactForm">
   <label>Name<input type="text" name="name" required /></label> 
   <label>Email<input type="email" name="email" required /></label> 

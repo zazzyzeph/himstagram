@@ -2,10 +2,6 @@
   display: none;
 }
 
-.successMessage {
-  color: var(--green);
-}
-
 .logo {
   padding-top: 10px;
   max-width: 300px;
