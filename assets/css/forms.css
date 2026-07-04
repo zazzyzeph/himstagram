@@ -23,7 +23,7 @@
 
 #contactForm button.button {
   display: block;
-  margin-top: 15px;
+  margin: 15px 0 30px;
 }
 
 #contactForm label.mood {
