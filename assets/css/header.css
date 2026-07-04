@@ -32,19 +32,31 @@ header svg {
 }
 
 #controls, #contact {
+  grid-template-columns: 30px 30px 30px;
   display: grid;
   align-content: center;
-  grid-template-columns: 40px 40px 40px;
-  gap: 12px;
+  gap: 9px;
 }
 
 #controls svg, #contact svg {
   display: inline-block;
-  width: 40px;
+  width: 30px;
+}
+
+
+@media screen and (min-width: 500px) {
+  #controls, #contact {
+    grid-template-columns: 40px 40px 40px;
+    gap: 12px;
+  }
+  #controls svg, #contact svg {
+    display: inline-block;
+    width: 40px;
+  }
 }
 
 #contact svg {
-  fill: var(--purple);
+  fill: var(--yellow);
 }
 
 #rssLink svg {
