@@ -69,7 +69,14 @@
       </div>
     {{ end }}
     <div class="e-content">
-      {{ .Summary }}
+      {{ $summary := .Summary }}
+      {{/* Shift heading levels down by one (h1->h2 ... h5->h6), high-to-low so shifts don't cascade */}}
+      {{ $summary = replaceRE `<(/?)h5([ >])` `<${1}h6${2}` $summary }}
+      {{ $summary = replaceRE `<(/?)h4([ >])` `<${1}h5${2}` $summary }}
+      {{ $summary = replaceRE `<(/?)h3([ >])` `<${1}h4${2}` $summary }}
+      {{ $summary = replaceRE `<(/?)h2([ >])` `<${1}h3${2}` $summary }}
+      {{ $summary = replaceRE `<(/?)h1([ >])` `<${1}h2${2}` $summary }}
+      {{ $summary | safeHTML }}
     </div>
     {{ if .Truncated }}
     <div class="readMore">

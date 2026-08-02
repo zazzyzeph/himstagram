@@ -73,6 +73,7 @@ table {
 
 .highlight {
   overflow-x: auto;
+  max-width: calc(100vw - 20px) /* magic number! lol - this is the side padding of the overall container. pre tags are weird! */
 }
 
 .highlight * {
