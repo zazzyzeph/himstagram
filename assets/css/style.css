@@ -46,6 +46,10 @@ body {
   color: var(--fg);
 }
 
+code {
+  font-size: inherit;
+}
+
 a {
   color: var(--blue);
 }
@@ -214,7 +218,6 @@ html {
   height: 100vh;
   margin: 0 auto;
   padding: 0 10px 0;
-  max-width: calc(100vw - 20px);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: min-content 1fr min-content;
